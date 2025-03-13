@@ -5,12 +5,12 @@ function App() {
   const portfolioItems = [
     {
       title: "BoostupMedia",
-      image: "WD6.png",
+      image: "/images/WD6.png", // Updated path
       url: "https://boostupmedia.in/"
     },
     {
       title: "DGineers",
-      image: "WD1.png",
+      image: "/images/WD1.png", // Updated path
       url: "https://dgineers.com/"
     }
   ];
@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Enhanced Floating Navigation */}
-      <nav className="nav-container">
+      <nav className="nav-container fixed left-4 top-1/2 transform -translate-y-1/2 z-50">
         <div className="flex flex-col space-y-8">
           {['home', 'about', 'portfolio', 'contact'].map((item, index) => (
             <a
@@ -38,7 +38,7 @@ function App() {
         </div>
       </nav>
 
-      <main>
+      <main className="pl-16"> {/* Added padding to prevent content from going under navbar */}
         {/* Hero Section */}
         <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-r from-blue-50 to-white">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?w=800')] bg-cover bg-center opacity-10"></div>
@@ -46,7 +46,7 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <div className="w-64 h-64 rounded-full overflow-hidden mb-8 animate-float animate-glow">
                 <img 
-                  src="Formal 1.jpg"
+                  src="/images/Formal1.jpg" // Updated path
                   alt="Profile"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
@@ -63,7 +63,7 @@ function App() {
             <h2 className="text-4xl font-bold gradient-text mb-12 text-center animate-scale">About Me</h2>
             <div className="max-w-3xl mx-auto text-gray-600 leading-relaxed">
               <p className="mb-4 animate-slideUp delay-200">
-                I’m Neeraj Madkar, a passionate Web Designer & UI/UX Expert, dedicated to crafting visually stunning and high-converting websites. With a strong foundation in front-end development, user experience design, and digital strategy, I help businesses establish a powerful online presence.
+                I'm Neeraj Madkar, a passionate Web Designer & UI/UX Expert, dedicated to crafting visually stunning and high-converting websites. With a strong foundation in front-end development, user experience design, and digital strategy, I help businesses establish a powerful online presence.
               </p>
               <p className="animate-slideUp delay-400">
                 I believe focusing on aesthetics + functionality for maximum impact, designing with a data-driven and user-first approach and helping brands turn their websites into lead-generating machines. Let's bring your vision to life!
@@ -76,7 +76,7 @@ function App() {
         <section id="portfolio" className="py-20 bg-blue-50">
           <div className="container mx-auto px-6">
             <h2 className="text-4xl font-bold gradient-text mb-12 text-center animate-scale">My Work</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto"> {/* Added max-w-4xl and mx-auto for centering */}
               {portfolioItems.map((item, index) => (
                 <div 
                   key={index}
@@ -88,6 +88,9 @@ function App() {
                       src={item.image} 
                       alt={item.title} 
                       className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                      onError={(e) => {
+                        e.currentTarget.src = 'https://via.placeholder.com/400x200?text=Portfolio+Image';
+                      }} // Fallback image if loading fails
                     />
                   </div>
                   <div className="p-6">
