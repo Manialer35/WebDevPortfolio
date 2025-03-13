@@ -5,12 +5,12 @@ function App() {
   const portfolioItems = [
     {
       title: "BoostupMedia",
-      image: "/images/WD6.png", // Updated path
+      image: "/WebDevPortfolio/images/WD6.png", 
       url: "https://boostupmedia.in/"
     },
     {
       title: "DGineers",
-      image: "/images/WD1.png", // Updated path
+      image: "/WebDevPortfolio/images/WD1.png", 
       url: "https://dgineers.com/"
     }
   ];
@@ -46,7 +46,7 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <div className="w-64 h-64 rounded-full overflow-hidden mb-8 animate-float animate-glow">
                 <img 
-                  src="/images/Formal1.jpg" // Updated path
+                  src="/WebDevPortfolio/images/Formal1.jpg" 
                   alt="Profile"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                 />
