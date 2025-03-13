@@ -2,15 +2,17 @@ import React from 'react';
 import { Github, Instagram, Mail, MessageCircle, ExternalLink, Linkedin, Twitter } from 'lucide-react';
 
 function App() {
+  // Fix 1: Update image paths to be relative to the current page
+  // For GitHub Pages, you might need to use relative paths or full repository paths
   const portfolioItems = [
     {
       title: "BoostupMedia",
-      image: "/WebDevPortfolio/images/WD6.png", 
+      image: "./images/WD6.png", // Changed to relative path
       url: "https://boostupmedia.in/"
     },
     {
       title: "DGineers",
-      image: "/WebDevPortfolio/images/WD1.png", 
+      image: "./images/WD1.png", // Changed to relative path
       url: "https://dgineers.com/"
     }
   ];
@@ -38,7 +40,8 @@ function App() {
         </div>
       </nav>
 
-      <main className="pl-16"> {/* Added padding to prevent content from going under navbar */}
+      {/* Fix 2: Increased left padding to prevent navbar overlap */}
+      <main className="pl-24"> 
         {/* Hero Section */}
         <section id="home" className="min-h-screen relative overflow-hidden bg-gradient-to-r from-blue-50 to-white">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1579547621113-e4bb2a19bdd6?w=800')] bg-cover bg-center opacity-10"></div>
@@ -46,9 +49,12 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <div className="w-64 h-64 rounded-full overflow-hidden mb-8 animate-float animate-glow">
                 <img 
-                  src="/WebDevPortfolio/images/Formal1.jpg" 
+                  src="./images/Formal1.jpg" // Changed to relative path
                   alt="Profile"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://via.placeholder.com/400x400?text=Profile+Image';
+                  }} // Added fallback for profile image
                 />
               </div>
               <h1 className="text-6xl font-bold gradient-text mb-4 animate-slideUp">Neeraj Madkar</h1>
@@ -76,7 +82,8 @@ function App() {
         <section id="portfolio" className="py-20 bg-blue-50">
           <div className="container mx-auto px-6">
             <h2 className="text-4xl font-bold gradient-text mb-12 text-center animate-scale">My Work</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto"> {/* Added max-w-4xl and mx-auto for centering */}
+            {/* Fix 3: Centered portfolio items with adjusted grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-3xl mx-auto"> 
               {portfolioItems.map((item, index) => (
                 <div 
                   key={index}
