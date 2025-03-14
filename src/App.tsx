@@ -7,12 +7,12 @@ function App() {
   const portfolioItems = [
     {
       title: "BoostupMedia",
-      image: "./images/WD6.png", // Changed to relative path
+      image: "/WebPortfolio/images/WD6.png", // Changed to relative path
       url: "https://boostupmedia.in/"
     },
     {
       title: "DGineers",
-      image: "./images/WD1.png", // Changed to relative path
+      image: "/WebPortfolio/images/WD1.png", // Changed to relative path
       url: "https://dgineers.com/"
     }
   ];
@@ -49,7 +49,7 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <div className="w-64 h-64 rounded-full overflow-hidden mb-8 animate-float animate-glow">
                 <img 
-                  src="./images/Formal1.jpg" // Changed to relative path
+                  src="/WebPortfolio/images/Formal1.jpg" // Changed to relative path
                   alt="Profile"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
