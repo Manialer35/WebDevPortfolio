@@ -9,12 +9,12 @@ function App() {
   const portfolioItems = [
     {
       title: "BoostupMedia",
-      image: `/${repoName}/images/WD6.png`,
+      image: `images/WD6.png`,
       url: "https://boostupmedia.in/"
     },
     {
       title: "DGineers",
-      image: `/${repoName}/images/WD1.png`,
+      image: `images/WD1.png`,
       url: "https://dgineers.com/"
     }
   ];
@@ -52,7 +52,7 @@ function App() {
             <div className="flex flex-col items-center text-center">
               <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-64 md:h-64 rounded-full overflow-hidden mb-4 sm:mb-6 md:mb-8 animate-float shadow-lg">
                 <img 
-                  src={`/${repoName}/images/Formal1.jpg`}
+                  src={`images/Formal 1.jpg`}
                   alt="Profile"
                   className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
                   onError={(e) => {
